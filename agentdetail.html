@@ -10,9 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="dist/css/sm.css">
-    <link rel="stylesheet" href="lib/pagination/style/common.css" />
-    <link rel="stylesheet" href="lib/pagination/style/pagination.css" />
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -67,15 +65,12 @@
                 <div class="row no-gutter">
                     <div class="col-100 cz-list">
                         <ul class="clearfix">
-                            <li>玩家名称</li>
-                            <li>充值金额</li>
-                            <li>小伟哥</li>
-                            <li>68.00元</li>
-                            <li>小伟哥</li>
-                            <li>68.00元</li>
-                            <li>小伟哥</li>
-                            <li>68.00元</li>
                         </ul>
+                    </div>
+                </div>
+                <div class="row no-gutter">
+                    <div class="col-100 m-l02">
+                        <div id="example"></div>
                     </div>
                 </div>
                 <div class="row no-gutter">
@@ -109,16 +104,37 @@
         </div>
     </div>
     <script type='text/javascript' src="js/flexible.js" charset='utf-8'></script>
-    <script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='dist/js/sm.js' charset='utf-8'></script>
-    <script>
-        $(function() {
-            $.init();
-            $(".datetime-picker").datetimePicker({
-                value: ['2017', '12', '04', '9', '34']
-            });
-        })
-    </script>
+    <!--<script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>-->
+    <!--<script type='text/javascript' src='dist/js/sm.js' charset='utf-8'></script>-->
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+    <script type='text/javascript'>
+    
+    $(function() {
+       var count=100;
+       cz_list(1);
+       var totalPages=Math.ceil(count / 10);
+       var options = {
+        currentPage: 1,
+        totalPages: totalPages,
+        size:'normal',
+        alignment:'left',
+        onPageClicked: function(e,originalEvent,type,page){
+            cz_list(page);
+        }
+    }
+    $('#example').bootstrapPaginator(options);
+})
+    function cz_list(page){
+        $(".cz-list .clearfix").empty();
+        $(".cz-list .clearfix").append('<li>玩家名称</li><li>充值金额</li>');
+        for (var i = 0; i < 10; i++) {
+           $(".cz-list .clearfix").append('<li>小伟哥</li><li>68.00元</li>');
+       };
+   }
+   </script>
 </body>
 
 </html>
