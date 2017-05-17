@@ -10,8 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="dist/css/sm.css">
-    <link rel="stylesheet" href="lib/pagination/style/common.css" />
-    <link rel="stylesheet" href="lib/pagination/style/pagination.css" />
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
@@ -37,7 +36,7 @@
                 </div>
                 <div class="row no-gutter i-search">
                     <div class="col-100 ja-title">
-                        下级代理商人数： <span>999人</span>&nbsp;&nbsp;&nbsp;&nbsp; <a href="" style="text-decoration: underline !important">新增下级代理</a>
+                        下级代理商人数： <span>999人</span>&nbsp;&nbsp;&nbsp;&nbsp; <a href="junioragentadd.html" style="text-decoration: underline !important">新增下级代理</a>
                     </div>
                 </div>
                 <div class="row no-gutter i-search" style="padding-top: 0 !important">
@@ -54,51 +53,46 @@
                 <div class="row no-gutter">
                     <div class="col-100 ja-list">
                         <ul class="clearfix">
-                            <li class="ja-content">总界网络</li>
-                            <li class="ja-content">0000</li>
-                            <li class="ja-content">总代理-50%</li>
-                            <li class="ja-caozuo">编辑</li>
-                            <li class="ja-caozuo">删除</li>
-
-                            <li class="ja-content">总界网络</li>
-                            <li class="ja-content">0000</li>
-                            <li class="ja-content">总代理-50%</li>
-                            <li class="ja-caozuo">编辑</li>
-                            <li class="ja-caozuo">删除</li>
-
-                            <li class="ja-content">总界网络</li>
-                            <li class="ja-content">0000</li>
-                            <li class="ja-content">总代理-50%</li>
-                            <li class="ja-caozuo">编辑</li>
-                            <li class="ja-caozuo">删除</li>
-
-                            <li class="ja-content">总界网络</li>
-                            <li class="ja-content">0000</li>
-                            <li class="ja-content">总代理-50%</li>
-                            <li class="ja-caozuo">编辑</li>
-                            <li class="ja-caozuo">删除</li>
-
-                            <li class="ja-content">总界网络</li>
-                            <li class="ja-content">0000</li>
-                            <li class="ja-content">总代理-50%</li>
-                            <li class="ja-caozuo">编辑</li>
-                            <li class="ja-caozuo">删除</li>
-
-                            <li class="ja-content">总界网络</li>
-                            <li class="ja-content">0000</li>
-                            <li class="ja-content">总代理-50%</li>
-                            <li class="ja-caozuo">编辑</li>
-                            <li class="ja-caozuo">删除</li>
                         </ul>
+                    </div>
+                </div>
+                <div class="row no-gutter">
+                    <div class="col-100 m-l02">
+                        <div id="example"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <script type='text/javascript' src="js/flexible.js" charset='utf-8'></script>
-    <script type='text/javascript' src='http://g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
-    <script type='text/javascript' src='dist/js/sm.js' charset='utf-8'></script>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <script src="lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+    <script>
+        $(function() {
+            //first
+            var count = 100;
+            get_list(1);
+            var totalPages = Math.ceil(count / 10);
+            var options = {
+                currentPage: 1,
+                totalPages: totalPages,
+                size: 'normal',
+                alignment: 'left',
+                onPageClicked: function(e, originalEvent, type, page) {
+                    get_list(page);
+                }
+            }
+            $('#example').bootstrapPaginator(options);
+        })
 
+        function get_list(page) {
+            $(".ja-list .clearfix").empty();
+            for (var i = 0; i < 10; i++) {
+                $(".ja-list .clearfix").append('<li class="ja-content">总界网络</li><li class="ja-content">0000</li><li class="ja-content">总代理-50%</li><li class="ja-caozuo"><a href="junioragentedit.html">编辑</a></li><li class="ja-caozuo">删除</li>');
+            };
+        }
+    </script>
 </body>
 
 </html>

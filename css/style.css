@@ -146,6 +146,8 @@
 .tuilink {
     width: 95%;
     float: left;
+    border: 1px solid #bebebe;
+    border-radius: 0;
 }
 
 .tui-text {
@@ -199,6 +201,13 @@
     font-size: .4555rem;
 }
 
+.pass-form .ipt-pwd {
+    background: url('../img/keyboard.png') no-repeat right;
+    background-size: auto .9rem;
+    padding-right: 1.6rem;
+    background-position: 95% 50%;
+}
+
 .pass-form .ag-select {
     height: 1.2788rem;
     width: 100%;
@@ -207,7 +216,25 @@
     border: 1px solid #bebebe;
 }
 
-.pass-form .ipt-checkbox input[type=checkbox] {}
+.pass-form .ipt-checkbox input[type=checkbox] {
+    display: none;
+}
+
+#checkbox-1+label {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: url('../img/gou.png');
+    background-size: 1rem 1rem;
+}
+
+#checkbox-1:checked+label {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    background: url('../img/gou1.png');
+    background-size: 1rem 1rem;
+}
 
 .m-b02 {
     margin-bottom: .2rem;
@@ -233,13 +260,27 @@
 }
 
 .i-search {
-    padding: .3rem .2rem;
+    padding: .1rem .2rem;
 }
 
-.datetime-picker {
+.datetime-picker div {
     width: 100%;
-    height: .8rem;
-    font-size: .3555rem;
+    height: .8rem !important;
+    line-height: .8rem !important;
+    font-size: .3555rem !important;
+    border-radius: 1px;
+    border: 1px solid #bebebe;
+}
+
+.date-picker {
+    display: block;
+    width: .5rem;
+    height: .5rem;
+    background: url('../img/datepicker.gif') no-repeat right;
+    background-position: 95% 50%;
+    background-size: .5rem auto;
+    text-align: left;
+    padding-left: .2rem;
 }
 
 .search-btn {
@@ -249,7 +290,7 @@
 
 .search-btn input {
     width: 100%;
-    height: .7rem;
+    height: .8rem;
     border: 1px solid #BEBEBE;
     background: #fff;
     border-radius: 2px;
@@ -297,7 +338,6 @@
 
 .bt-list ul {
     margin-left: .1888rem;
-    margin-bottom: 1rem;
 }
 
 .bt-list li {
@@ -320,7 +360,7 @@
 
 .search-text input {
     width: 100%;
-    height: .7rem;
+    height: .8rem;
     border: 1px solid #BEBEBE;
     border-radius: 2px;
     font-size: .3555rem;
@@ -328,7 +368,6 @@
 
 .ja-list ul {
     margin-left: .1888rem;
-    margin-bottom: 1rem;
 }
 
 .ja-list li {
@@ -349,4 +388,20 @@
     width: 15.18888%;
 }
 
-.ipt-checkbox {}
+.pagination {
+    margin: .2rem .1rem;
+}
+
+.pagination ul>li>a {
+    color: #333
+}
+
+
+/*give style*/
+
+.zuan {
+    margin-left: .2rem !important;
+    text-align: left !important;
+    font-size: .4888rem;
+    margin-bottom: 1rem !important;
+}
