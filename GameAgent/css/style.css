@@ -121,6 +121,10 @@
     padding-left: .3rem;
 }
 
+.i-nav a {
+    color: #fff;
+}
+
 .admin-info {
     margin-left: .0588rem;
     margin-right: .1222rem;
