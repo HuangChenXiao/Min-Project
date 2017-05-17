@@ -1,43 +1,31 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+    <title>Zero Clipboard Test</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>棋牌室代理商后台</title>
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-    <!--<meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no">-->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="stylesheet" href="css/base.css" />
-    <link rel="stylesheet" href="dist/css/sm.css">
-    <link rel="stylesheet" href="css/style.css" />
-    <style>
-        #checkbox-1 {
-            display: none;
-        }
-        
-        #checkbox-1+label {
-            color: red;
-        }
-        
-        #checkbox-1:checked+label {
-            color: blue;
-        }
-    </style>
 </head>
 
 <body>
-    <div class="page-group">
-        <div class="page page-current p-v-index">
-            <div class="content native-scroll">
-                <input type="checkbox" id="checkbox-1" />
-                <label for="checkbox-1">Check?</label>
-            </div>
-        </div>
-    </div>
-    <script type='text/javascript' src="js/flexible.js" charset='utf-8'></script>
-    <script>
-    </script>
+    <!-- 
+    说明：
+    1.data-clipboard-target 输入要复制的对象的ID
+-->
+    <button id="d_clip_button" class="my_clip_button" data-clipboard-target="fe_text"><b>复制到剪贴板</b></button>
+    <br/>
+    <textarea id="fe_text" cols="50" rows="3">输入需要复制的内容</textarea>
 </body>
 
 </html>
+<script type="text/javascript" src="ZeroClipboard.js"></script>
+<script type="text/javascript">
+    // 定义一个新的复制对象
+    var clip = new ZeroClipboard(document.getElementById("d_clip_button"), {
+        moviePath: "ZeroClipboard.swf"
+    });
+
+    // 复制内容到剪贴板成功后的操作
+    clip.on('complete', function(client, args) {
+        alert("复制成功，复制内容为：" + args.text);
+    });
+</script>

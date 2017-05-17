@@ -44,25 +44,25 @@
                         <li><a href="">今日充值：</a></li>
                         <li><a href="agentdetail.html"><span class="unline">999</span>元</a></li>
                         <li><a href="">玩家数量：</a></li>
-                        <li><a href="give.html"><span class="unline">999</span>人</a></li>
+                        <li><a href=""><span class="unline">999</span>人</a></li>
                         <li><a href="">下级代理：</a></li>
                         <li><a href="junioragent.html"><span class="unline">999</span>人</a></li>
                     </ul>
                 </div>
                 <div class="row no-gutter">
                     <div class="col-100">
-                        <span class="unline" style="font-size: .3555rem">赠送钻石</span>
+                        <a href="give.html"><span class="unline" style="font-size: .3555rem">赠送钻石</span></a>
                     </div>
                 </div>
                 <div class="row no-gutter tui-text">
                     <div class="col-25">推广链接：</div>
                     <div class="col-75">
-                        <input type="text" class="tuilink" value="http://www.baidu.com">
+                        <input type="text" class="tuilink" id="tuilink" value="http://www.baidu.com">
                     </div>
                 </div>
                 <div class="row no-gutter tuibtn">
                     <div class="col-100">
-                        <img src="img/tuig.png">
+                        <button id="tuilink" data-clipboard-text="http://www.baidu.com"></button>
                     </div>
                 </div>
                 <div class="row no-gutter wechat">
@@ -84,6 +84,19 @@
         </div>
     </div>
     <script type='text/javascript' src="js/flexible.js" charset='utf-8'></script>
+    <script type='text/javascript' src="lib/clipboard/clipboard.min.js" charset='utf-8'></script>
+    <script>
+        var btn = document.querySelectorAll('button');
+        var clipboard = new Clipboard(btn);
+
+        clipboard.on('success', function(e) {
+            alert("已成功复制到剪切板！");
+        });
+
+        clipboard.on('error', function(e) {
+            alert('浏览器不支持复制功能，请手动复制！');
+        });
+    </script>
 </body>
 
 </html>
